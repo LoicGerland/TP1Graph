@@ -25,6 +25,7 @@ public class testGraph {
 		Arc a2reversed = new Arc(n3,n2, null);
 		Arc a3 = new Arc(n1,n3, null);
 
+		//QUESTION 1
 		/*IDirectedGraph g = new Graph();
 		g.addNode(n1);
 		g.addNode(n2);
@@ -42,6 +43,7 @@ public class testGraph {
 		System.out.println(g.getAdjNodes(n3));
 		System.out.println(g.getArc(n2));*/
 		
+		//QUESTION 2
 		IUndirectedGraph g = new UndirectedGraph();
 		g.addNode(n1);
 		g.addNode(n2);
