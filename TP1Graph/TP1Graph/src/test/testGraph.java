@@ -1,8 +1,9 @@
 package test;
 
+import graph.Question1.Graph;
+import graph.Question2.UndirectedGraph;
 import graph.Arc;
 import graph.DoubleLabel;
-import graph.Graph;
 import graph.IDirectedGraph;
 import graph.IUndirectedGraph;
 import graph.IntegerLabel;
@@ -12,6 +13,7 @@ import graph.StringLabel;
 public class testGraph {
 
 	public static void main(String[] args) {
+		
 		Node n1 = new Node(new IntegerLabel(1));
 		Node n2 = new Node(new IntegerLabel(2));
 		Node n3 = new Node(new IntegerLabel(3));
@@ -23,17 +25,35 @@ public class testGraph {
 		Arc a2reversed = new Arc(n3,n2, null);
 		Arc a3 = new Arc(n1,n3, null);
 
-		IDirectedGraph g = new Graph();
-		g.addNode(n1);g.addNode(n2);g.addNode(n3);g.addNode(n4);
-		g.addArc(a1);g.addArc(a1reversed);g.addArc(a2);g.addArc(a2reversed);g.addArc(a3);
+		/*IDirectedGraph g = new Graph();
+		g.addNode(n1);
+		g.addNode(n2);
+		g.addNode(n3);
+		g.addNode(n4);
+		
+		g.addArc(a1);
+		g.addArc(a1reversed);
+		g.addArc(a2);
+		g.addArc(a2reversed)
+		;g.addArc(a3);
+		
 		System.out.println(g);
 		System.out.println(g.hasArc(n1, n2)+" "+g.hasArc(n2, n4));
 		System.out.println(g.getAdjNodes(n3));
-		System.out.println(g.getArc(n2));
+		System.out.println(g.getArc(n2));*/
 		
+		IUndirectedGraph g = new UndirectedGraph();
+		g.addNode(n1);
+		g.addNode(n2);
+		g.addNode(n3);
+		g.addNode(n4);
 		
+		g.addEdge(n1, n2);
+		g.addEdge(n2, n3);
 		
-		
+		System.out.println(g);
+		System.out.println(g.hasEdge(n1, n2)+" "+g.hasEdge(n2, n4));
+		System.out.println(g.getAdjNodes(n2));
 	}
 
 }

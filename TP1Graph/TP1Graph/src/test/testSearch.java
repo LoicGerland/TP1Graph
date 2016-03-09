@@ -2,17 +2,17 @@ package test;
 
 import java.util.Iterator;
 
+import graph.Question1.Graph;
 import graph.Arc;
-import graph.Graph;
 import graph.IDirectedGraph;
 import graph.IGraph;
 import graph.IUndirectedGraph;
 import graph.Node;
 import graph.StringLabel;
-import graph.UndirectedGraph;
+//import graph.UndirectedGraph;
 
 public class testSearch {
-
+/*
 	public static void main(String[] args) {
 		//exemple wikipedia: graph oriente
 		Node na = new Node(new StringLabel("A"));
@@ -67,5 +67,5 @@ public class testSearch {
 		System.out.println("dfs:");
 		while (iterugDFS.hasNext())
 			System.out.println(iterugDFS.next());
-	}
+	}*/
 }
