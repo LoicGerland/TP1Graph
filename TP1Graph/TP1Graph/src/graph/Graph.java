@@ -1,11 +1,8 @@
-package graph.Question1;
+package graph;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import graph.Arc;
-import graph.IDirectedGraph;
-import graph.Node;
 
 public class Graph implements IDirectedGraph {
 
@@ -84,6 +81,16 @@ public class Graph implements IDirectedGraph {
 
 	public void setArcs(List<Arc> arcs) {
 		this.arcs = arcs;
+	}
+
+	@Override
+	public Iterator<Node> creerBFSIterator(Node n) {
+		return new IterateurLargeur(n, this);
+	}
+
+	@Override
+	public Iterator<Node> creerDFSIterator(Node n) {
+		return new IterateurProfondeur(n, this);
 	}
 
 }

@@ -2,7 +2,6 @@ package graph;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public interface IGraph {
 	/**
@@ -29,10 +28,10 @@ public interface IGraph {
 	/**
 	 * renvoi un iterateur pour recherche en largeur
 	 */
-	//public Iterator<Node> creerBFSIterator(Node n);
+	public Iterator<Node> creerBFSIterator(Node n);
 	
 	/**
 	 * renvoi un iterateur pour recherche en profondeur
 	 */
-	//public Iterator<Node> creerDFSIterator(Node n);
+	public Iterator<Node> creerDFSIterator(Node n);
 }

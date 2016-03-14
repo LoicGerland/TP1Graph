@@ -1,14 +1,14 @@
 package test;
 
-import graph.Question1.Graph;
-import graph.Question2.UndirectedGraph;
 import graph.Arc;
 import graph.DoubleLabel;
+import graph.Graph;
 import graph.IDirectedGraph;
 import graph.IUndirectedGraph;
 import graph.IntegerLabel;
 import graph.Node;
 import graph.StringLabel;
+import graph.UndirectedGraph;
 
 public class testGraph {
 

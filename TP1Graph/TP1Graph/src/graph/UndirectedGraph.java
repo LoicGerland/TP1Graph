@@ -1,11 +1,7 @@
-package graph.Question2;
+package graph;
 
+import java.util.Iterator;
 import java.util.List;
-
-import graph.Arc;
-import graph.IUndirectedGraph;
-import graph.Node;
-import graph.Question1.Graph;
 
 public class UndirectedGraph implements IUndirectedGraph {
 
@@ -47,6 +43,16 @@ public class UndirectedGraph implements IUndirectedGraph {
 	public boolean hasEdge(Node _node1, Node _node2) {
 		
 		return graph.hasArc(_node1, _node2);
+	}
+
+	@Override
+	public Iterator<Node> creerBFSIterator(Node n) {
+		return graph.creerBFSIterator(n);
+	}
+
+	@Override
+	public Iterator<Node> creerDFSIterator(Node n) {
+		return graph.creerDFSIterator(n);
 	}
 
 }
