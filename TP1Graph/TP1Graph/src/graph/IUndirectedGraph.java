@@ -13,5 +13,4 @@ public interface IUndirectedGraph extends IGraph{
 	 */
 	public boolean hasEdge(Node _node1,Node _node2);
 
-
 }

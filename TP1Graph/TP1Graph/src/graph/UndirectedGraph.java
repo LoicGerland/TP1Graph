@@ -3,6 +3,11 @@ package graph;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Graph non orienté
+ * 
+ * @author GERLAND - LETOURNEUR
+ */
 public class UndirectedGraph implements IUndirectedGraph {
 
 	Graph graph;

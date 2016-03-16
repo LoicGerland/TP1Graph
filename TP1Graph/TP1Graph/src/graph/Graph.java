@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Graph
+ * 
+ * @author GERLAND - LETOURNEUR
+ */
 public class Graph implements IDirectedGraph {
 
 	protected List<Node> noeuds;

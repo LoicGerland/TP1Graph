@@ -2,50 +2,72 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 
+/**
+ * Parcours en profondeur
+ * 
+ * @author GERLAND - LETOURNEUR
+ */
 public class IterateurProfondeur implements Iterator<Node> {
 	
-	private ArrayList<Node> listeNoeud;
+	/**
+	 * Pile de noeuds en profondeur
+	 */
+	private LinkedList<Node> pileNoeud;
+	/**
+	 * Liste de noeuds marqués
+	 */
 	private ArrayList<Node> listeMarque;
+	/**
+	 * Graph
+	 */
 	private Graph graph;
 	
 	public IterateurProfondeur(Node premier, Graph graph) {
 		
 		this.graph = graph;
-		listeNoeud = new ArrayList<Node>();
+		pileNoeud = new LinkedList<Node>();
 		listeMarque = new ArrayList<Node>();
-		listeNoeud.add(premier);
+		pileNoeud.add(premier);
 	}
 
 	@Override
 	public boolean hasNext() {
-		return this.listeNoeud.size()>0;
+		return this.pileNoeud.size()>0;
 	}
 
 	@Override
 	public Node next() {
 		
+		//Variable qui permet de savoir si à partir d'un sommet,
+		//on peut afficher un sommet adjacent. 
+		//Sinon on doit afficher ce sommet
 		boolean voisinExploitable = false;
-		Node courant = listeNoeud.get(listeNoeud.size()-1);
-		
+		//Récupère le premier élement de la pile
+		Node courant = pileNoeud.getFirst();
+		//Temps que le noeud courant a des adjacents (récursif)
 		while(graph.getAdjNodes(courant).size() > 0) {
 			voisinExploitable = false;
+			//Parcours de adjacent du sommet courant
 			for(Node temp : graph.getAdjNodes(courant)) {
-				
-				if(!listeMarque.contains(temp) && !listeNoeud.contains(temp)) {
-					listeNoeud.add(temp);
+				//Si il y a en un qui n'est pas marqué, on remplace courant
+				if(!listeMarque.contains(temp) && !pileNoeud.contains(temp)) {
+					pileNoeud.addFirst(temp);
 					courant = temp;
 					voisinExploitable = true;
 					break;
 				}
 			}
+			//Si les sommet adjacent étaient déjà tous marqués,
+			//on sort du while pour afficher le premier sommet de la pile
 			if(!voisinExploitable ) {
 				break;
 			}
 		}
 		
 		listeMarque.add(courant);
-		listeNoeud.remove(listeNoeud.size()-1);
+		pileNoeud.removeFirst();
 		
 		return courant;
 	}

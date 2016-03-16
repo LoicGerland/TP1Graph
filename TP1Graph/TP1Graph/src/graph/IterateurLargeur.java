@@ -3,10 +3,24 @@ package graph;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Parcours en largeur
+ * 
+ * @author GERLAND - LETOURNEUR
+ */
 public class IterateurLargeur implements Iterator<Node> {
 	
+	/**
+	 * Liste de noeuds
+	 */
 	private ArrayList<Node> listeNoeud;
+	/**
+	 * Liste de noeuds marqués
+	 */
 	private ArrayList<Node> listeMarque;
+	/**
+	 * Graph
+	 */
 	private Graph graph;
 	
 	public IterateurLargeur(Node premier, Graph graph) {
@@ -25,6 +39,8 @@ public class IterateurLargeur implements Iterator<Node> {
 	@Override
 	public Node next() {
 		
+		//Parcours de tous les noeuds 
+		//pour en trouver un non marqué
 		Node temp = null;
 		for(Node noeud : listeNoeud) {
 			if(!listeMarque.contains(noeud)) {
@@ -33,8 +49,8 @@ public class IterateurLargeur implements Iterator<Node> {
 			}
 		}
 		
+		//Parcours des voisins pour les ajouter à la liste
 		ArrayList<Node> voisins = (ArrayList<Node>) graph.getAdjNodes(temp);
-		
 		for(Node voisin : voisins) {
 			if(!listeNoeud.contains(voisin))
 				listeNoeud.add(voisin);
